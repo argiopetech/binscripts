@@ -1,0 +1,14 @@
+#!/bin/bash
+
+for sub in ${HOME}/Downloads/*submissions.zip; do
+    unzip "$sub" && rm -i "$sub"
+    
+    for l in *.zip; do
+        unzip "$l" -d "${l%%.zip}/"
+    done
+
+    dos2unix *
+    mac2unix *
+    
+    break;
+done

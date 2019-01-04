@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#. ~/.bash_wine
+
+#run supermemo &>/dev/null
+
+# OR
+
+virtualbox --startvm "Windows 10"
