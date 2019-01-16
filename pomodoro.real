@@ -5,9 +5,13 @@ function alert()
         mpv --really-quiet --audio-device="pulse/alsa_output.pci-0000_00_1f.3.analog-stereo" /usr/share/sounds/gnome/default/alerts/sonar.ogg
 }
 
+local count
+count="${1:-1}"
+
 while (:); do
     clear
-    echo "Pomodoro!"
+
+    echo "Pomodoro #$((count++))"
     sleep 25m
     alert
     
