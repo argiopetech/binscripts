@@ -1,5 +1,12 @@
 #!/bin/bash
 
+## Unpacks a downloaded Canvas submission file in the current directory
+##
+## I grade in a temp directory in /tmp. This unpacks the Canvas download directly into my directory,
+## fixes all line endings, and unzips all zips. I can then simply run through homework submissions
+## with `less -e`, view source directories with `tree`, or review specific source files with
+## `emacs`' `dired`.
+
 for sub in ${HOME}/Downloads/*submissions.zip; do
     unzip "$sub" && rm -i "$sub"
     
