@@ -1,9 +1,18 @@
 #!/bin/bash
 
-#. ~/.bash_wine
+## Starts supermemo
+##
+## Previously I ran supermemo using Wine in a prefixed directory. Wine's Internet Explorer doesn't
+## support supermemo, and Wine has some weird graphical effects on the supermemo UI, so I now run it
+## in a Windows 10 VM.
 
+
+# The old way...
+#. ~/.bash_wine
 #run supermemo &>/dev/null
 
-# OR
 
+# The new way
+#
+# --startvm starts a VM by name without launching the virtualbox UI
 virtualbox --startvm "Windows 10"

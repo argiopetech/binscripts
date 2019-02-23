@@ -1,3 +1,5 @@
 #!/bin/sh
 
+## Launches pomodoro.real in a gnome terminal
+
 gnome-terminal -- pomodoro.real

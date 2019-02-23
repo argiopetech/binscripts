@@ -1,3 +1,8 @@
 #!/bin/bash
 
+## Launches google chrome, forcing a 2x scaling factor
+##
+## Originally built because Chrome briefly dropped automatic DPI fixing on 4K screens
+## I think this problem is now fixed, but I keep this around just in case.
+
 google-chrome --force-device-scale-factor=2

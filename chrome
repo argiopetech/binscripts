@@ -1,3 +1,8 @@
 #!/bin/bash
 
+## Launches google-chrome
+##
+## Previously I used this during buggy period in Chrome history with chrome.hidpi to specify which
+## DPI I wanted Chrome to use. It exists now merely as a convenience shortcut.
+
 google-chrome # --force-device-scale-factor=1

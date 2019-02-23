@@ -10,7 +10,7 @@ separator = ":"
 
 data Goals = Beginning (Integer, Int, Int) String
            | End (Integer, Int, Int) String
-           | Money Integer Integer String
+           | Money Double Double String
            | Generic Integer Integer String String
            | Percent Double String
            | Section
@@ -50,7 +50,7 @@ showGoal today (End date event) =
   in formatDays delta event
 
 showGoal _ (Money current goal event) =
-  printf "%9s%s %s" (formatMoney $ goal - current) separator event
+  printf "%9s%s %s" (formatMoney $ round $ goal - current) separator event
 
 showGoal _ (Generic current goal units event) =
   printf "%4d %4s%s %s" (goal - current) units separator event

@@ -1,12 +1,38 @@
 #!/bin/bash
 
+## Implements a basic 25 minute pomodoro with 5 minute breaks in a terminal window
+##
+## I last used the "Marinara" Chrome extension for pomodoro tracking, but found it tied me to always
+## having a Chrome window open (which I dislike) and broke when I accidentally closed its window
+## (which I did frequently).
+##
+## This implements a lightweight alternative in a terminal which I can have anywhere on the screen,
+## and which I have to C-c to kill.
+
+
+# Marinara had subtle audio alerts, which I liked. This provides the same functionality on my local
+# system
+#
+# --really-quiet makes mpv not output anything to the terminal
+#
+# --audio-device ensures mpv always outputs to my speakers, even when I have headphones on. This is
+# nice for breaks, because I don't have to unplug my headphones. It might be really nice to have it
+# store the pulse output volume, set it to a desired default, play the sound, and reset the volume
+# to its previous state (e.g., for situations where the speaker output is muted or 100%)
 function alert()
 {
-        mpv --really-quiet --audio-device="pulse/alsa_output.pci-0000_00_1f.3.analog-stereo" /usr/share/sounds/gnome/default/alerts/sonar.ogg
+        mpv --really-quiet /usr/share/sounds/gnome/default/alerts/sonar.ogg
 }
+
+
+# We keep a count of the number of pomodoros on this run
+# I run pomodoro daily, so this is sufficient to let me know how much I've done today.
+# Defaults to the 1st positional parameter, if set, so that I can recover cleanly from a reboot.
+# `local` so we don't pollute the calling shell
 
 local count
 count="${1:-1}"
+
 
 while (:); do
     clear

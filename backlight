@@ -1,3 +1,9 @@
 #!/bin/bash
 
+## Sets the backlight brightness value for the first NVidia graphics card
+##
+## Params:
+##   Takes one paramater, expected integer 0-100, defaults to 40
+##   Values between 0 and 5 don't appear to cause a substantial change in brightness
+
 sudo sh -c "echo ${1:-40} > /sys/class/backlight/nvidia_0/brightness"
